@@ -1,0 +1,17 @@
+class Solution {
+    public int uniquePaths(int m, int n) {
+        // Total moves required = (m - 1) + (n - 1) = m + n - 2
+        int totalMoves = m + n - 2;
+        // Optimize loop iterations by picking the smaller parameter
+        int k = Math.min(m - 1, n - 1); 
+        
+        long result = 1;
+        
+        // Calculate C(totalMoves, k) = (totalMoves * (totalMoves - 1) * ... * (totalMoves - k + 1)) / (1 * 2 * ... * k)
+        for (int i = 1; i <= k; i++) {
+            result = result * (totalMoves - k + i) / i;
+        }
+        
+        return (int) result;
+    }
+}
