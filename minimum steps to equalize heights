@@ -1,0 +1,19 @@
+public static long minMoves(int[] H) {
+    int n = H.length;
+    int[] sorted = H.clone();
+    Arrays.sort(sorted);
+    int median = sorted[n / 2];
+    long moves = 0;
+    for (int h : H) {
+        moves += Math.abs(h - median);
+    }
+    return moves;
+}
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] H = new int[n];
+    for (int i = 0; i < n; i++) H[i] = sc.nextInt();
+    System.out.println(minMoves(H));
+    sc.close();
+}        explain this code
